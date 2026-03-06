@@ -29,6 +29,10 @@ message="""
 Working Directory -> Staging Area : git add
 Staging Area -> Local Repository : git commit
 Working Directory -> Local Repository : git commit -a
+Staging Area -> Working Directory : git checkout
+Local Repository -> Staging Area : git reset
+Local Repository -> Working Directory: git reset --hard
+Local Repository -> Remote Repository : git push
 """
 
 wsd(message, "git_diagram.png")
