@@ -26,13 +26,27 @@ def wsd(code, output_file = "diagram.png"):
 wsd("Sender->Recipient: Hello\nRecipient->Sender: Message recieved OK")
 
 message="""
-Working Directory -> Staging Area : git add
-Staging Area -> Local Repository : git commit
-Working Directory -> Local Repository : git commit -a
-Staging Area -> Working Directory : git checkout
-Local Repository -> Staging Area : git reset
-Local Repository -> Working Directory: git reset --hard
-Local Repository -> Remote Repository : git push
+participant "Cleese's remote" as M
+participant "Cleese's repo" as R
+participant "Cleese's index" as I
+participant Cleese as C
+
+note right of C: nano index.md
+note right of C: nano lakeland.md
+
+note right of C: git add index.md
+C->I: Add *only* the changes to index.md to the staging area
+
+note right of C: git commit -m "Include lakes"
+I->R: Make a commit from currently staged changes: index.md only
+
+note right of C: git add lakeland.md
+note right of C: git commit -m "Add Helvellyn"
+C->I: Stage *all remaining* changes, (lakeland.md)
+I->R: Make a commit from currently staged changes
+
+note right of C: git push
+R->M: Transfer commits to Github
 """
 
 wsd(message, "git_diagram.png")
