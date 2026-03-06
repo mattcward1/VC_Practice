@@ -6,3 +6,4 @@ Mountains in Wales
 * Snowdon
 * Glyder Fawr
 * Fan y Big
+* Cadair Idris
