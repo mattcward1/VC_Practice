@@ -1,3 +1,6 @@
+---
+title: Github Pages Ecample
+---
 Mountains and Lakes in the UK
 ===================
 England is not very mountainous. 
